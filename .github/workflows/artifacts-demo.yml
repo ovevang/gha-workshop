@@ -47,4 +47,11 @@ jobs:
            name: build-v${{ needs.build.outputs.version }}
            path: dist/
        - name: Test
-         run: npm test
+         run: npm run test:full-report
+       - name: upload coverage report
+         if: always ()
+         uses: actions/upload-artifact@v4
+         with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 30
