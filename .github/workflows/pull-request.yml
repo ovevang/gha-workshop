@@ -1,0 +1,16 @@
+name: PR workflow
+
+on:
+  - pull_request
+
+jobs:
+  say-hello:
+    name: Say Hello
+
+    runs-on: ubuntu-latest
+
+    steps:
+      # As with workflow and job names, step names are optional but recommended.
+      # In case you need to debug your workflow later, having descriptive names is very helpful.
+      - name: Print greeting
+        run: echo "Hello, Pull Request!"
