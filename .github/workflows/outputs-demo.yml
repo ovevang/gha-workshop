@@ -2,8 +2,6 @@ name: Test output
 on:
   # This workflow will only run for pull requests targeting the main branch
   push:
-    branches:
-      - main
 
 jobs:
   info:
