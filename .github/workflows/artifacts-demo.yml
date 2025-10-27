@@ -9,6 +9,8 @@ jobs:
   build:
     name: Build Project
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.number }}
     steps:
       # Remember we have to check out the repository first!
       - name: Checkout repository
@@ -42,7 +44,7 @@ jobs:
        - name: Download build
          uses: actions/download-artifact@v4
          with:
-           name: build-v${{ needs.build.outputs.number }}
+           name: build-v${{ needs.build.outputs.version }}
            path: dist/
        - name: Test
          run: npm test
