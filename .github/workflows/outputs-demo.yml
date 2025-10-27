@@ -52,7 +52,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Output message
-        run: echo "Building commit ${{ needs.info.outputs.sha }} on branch ${{ needs.info.outputs.branch-name }}
+        run: echo "Building commit ${{ needs.info.outputs.sha }} on branch ${{ needs.info.outputs.branch-name }}"
       - name: generate report
         id: report
         run: |
