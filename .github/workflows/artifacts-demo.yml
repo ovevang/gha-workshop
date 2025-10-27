@@ -55,3 +55,23 @@ jobs:
           name: coverage-report
           path: coverage/
           retention-days: 30
+  report:
+    name: Build report
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download buildfiles
+        uses: actions/download-artifact@v4
+        with:
+          name: build-v${{ needs.build.outputs.version }}
+          path: dist/
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+      - name: list buildfiles and coverage
+        run: |
+          echo $(ls -la dist/)
+          echo $(ls -la coverage/)
+          echo "Build and test artifacts collected"
