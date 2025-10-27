@@ -39,12 +39,12 @@ jobs:
       - name: Get node version
         id: node-version
         run: |
-          nodeversion = $(node --version)
+          nodeversion=$(node --version)
           echo "nodeversion=$nodeversion" >> $GITHUB_OUTPUT
       - name: Get npm version
         id: npm-version
         run: |
-          npmversion = $(npm --version)
+          npmversion=$(npm --version)
           echo "npmversion=$npmversion" >> $GITHUB_OUTPUT
       # This step installs the dependencies
       - name: Install dependencies
