@@ -56,7 +56,8 @@ jobs:
       - name: generate report
         id: report
         run: |
-          echo "report<<EOF--- Build report ---" >> $GITHUB_OUTPUT
+          echo "report<<EOF" >> $GITHUB_OUTPUT
+          echo "--- Build report ---" >> $GITHUB_OUTPUT
           echo "Node version: ${{ steps.node-version.outputs.nodeversion }}" >> $GITHUB_OUTPUT
           echo "NPM version: ${{ steps.npm-version.outputs.npmversion }}" >> $GITHUB_OUTPUT
           echo "Success!" >> $GITHUB_OUTPUT
